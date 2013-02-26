@@ -12,12 +12,8 @@
  * @since Flutuante 1.0
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+	$content_width = 660; /* pixels */
 
-/*
- * Load Jetpack compatibility file.
- */
-require( get_template_directory() . '/inc/jetpack.php' );
 
 if ( ! function_exists( 'flutuante_setup' ) ) :
 /**
@@ -79,36 +75,6 @@ function flutuante_setup() {
 endif; // flutuante_setup
 add_action( 'after_setup_theme', 'flutuante_setup' );
 
-/**
- * Setup the WordPress core custom background feature.
- *
- * Use add_theme_support to register support for WordPress 3.4+
- * as well as provide backward compatibility for WordPress 3.3
- * using feature detection of wp_get_theme() which was introduced
- * in WordPress 3.4.
- *
- * @todo Remove the 3.3 support when WordPress 3.6 is released.
- *
- * Hooks into the after_setup_theme action.
- */
-function flutuante_register_custom_background() {
-	$args = array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	);
-
-	$args = apply_filters( 'flutuante_custom_background_args', $args );
-
-	if ( function_exists( 'wp_get_theme' ) ) {
-		add_theme_support( 'custom-background', $args );
-	} else {
-		define( 'BACKGROUND_COLOR', $args['default-color'] );
-		if ( ! empty( $args['default-image'] ) )
-			define( 'BACKGROUND_IMAGE', $args['default-image'] );
-		add_custom_background();
-	}
-}
-add_action( 'after_setup_theme', 'flutuante_register_custom_background' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -117,15 +83,16 @@ add_action( 'after_setup_theme', 'flutuante_register_custom_background' );
  */
 function flutuante_widgets_init() {
 	register_sidebar( array(
-		'name' => __( 'Sidebar', 'flutuante' ),
+		'name' => __( 'Footer Widget Area', 'flutuante' ),
 		'id' => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => '</aside>',
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'flutuante_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles
@@ -144,8 +111,3 @@ function flutuante_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'flutuante_scripts' );
-
-/**
- * Implement the Custom Header feature
- */
-//require( get_template_directory() . '/inc/custom-header.php' );
