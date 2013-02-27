@@ -1,9 +1,9 @@
 /*
 Theme Name: Flutuante
-Theme URI: http://underscores.me/
+Theme URI: https://github.com/eduardozulian/flutuante
 Author: Eduardo Zulian
 Author URI: http://flutuante.com.br
-Description: Description
+Description: Smooth.
 Version: 1.0
 License: GNU General Public License
 License URI: license.txt
@@ -353,7 +353,6 @@ a:active {
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
 	text-align: center;
 	width: 100%;
 }
