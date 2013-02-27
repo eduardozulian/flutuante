@@ -21,8 +21,9 @@ and Blueprint http://www.blueprintcss.org/
 /*
 Colors
 
-Main color: 	#111
-Post content:	#444
+Main color: 		#111 (gray)
+Post content:		#444 (gray)
+Post content links: #fff9c0 (yellow)
 
 */
 
@@ -50,15 +51,18 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	vertical-align: baseline;
 }
+
 html {
 	font-size: 100%;
 	overflow-y: scroll; /* Keeps page centred in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust: 100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
+
 body {
 	background: #fff;
 }
+
 article,
 aside,
 details,
@@ -71,31 +75,39 @@ nav,
 section {
 	display: block;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 table { /* tables still need 'cellspacing="0"' in the markup */
 	border-collapse: separate;
 	border-spacing: 0;
 }
+
 caption, th, td {
 	font-weight: normal;
 	text-align: left;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: "";
 }
+
 blockquote, q {
 	quotes: "" "";
 }
+
 a:focus {
 	outline: thin dotted;
 }
+
 a:hover,
 a:active { /* Improves readability when focused and also mouse hovered in all browsers people.opera.com/patrickl/experiments/keyboard/test */
 	outline: 0;
 }
+
 a img {
 	border: 0;
 }
@@ -301,10 +313,13 @@ textarea {
 /* Links */
 a {
 	color: royalblue;
+	text-decoration: none;
 }
+
 a:visited {
 	color: purple;
 }
+
 a:hover,
 a:focus,
 a:active {
@@ -351,9 +366,14 @@ a:active {
 ----------------------------------------------- */
 
 .main-navigation {
+	border-bottom: 1px solid #f2f2f2;
 	clear: both;
 	display: block;
+	font-family: Lora, Georgia, Times, serif;
+	margin-bottom: 4em;
+	padding: 2em 0 1em;
 	text-align: center;
+	text-transform: uppercase;
 	width: 100%;
 }
 
@@ -368,6 +388,7 @@ a:active {
 
 .main-navigation a {
 	text-decoration: none;
+	padding: 1em;
 }
 
 .main-navigation ul ul {
@@ -428,6 +449,7 @@ a:active {
 
 .entry-title {
 	font-size: 2.5em;
+	line-height: 1.350em;
 }
 
 .entry-meta {
@@ -454,6 +476,18 @@ a:active {
 	font-size: 1.1250em;
 	line-height: 1.5em;
 	margin: 1.5em 0 0;
+}
+
+.entry-content a,
+.entry-summary a {
+	background-color: #fff9c0;
+	color: inherit;
+}
+
+.entry-content a:hover,
+.entry-summary a:hover {
+	background-color: #fff69e;
+	color: #111;
 }
 
 .page-links {
